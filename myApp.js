@@ -19,7 +19,7 @@ const personSchema = new Schema({
 }); 
 
 //person constructor
-const Person = mongoose.model("Person", personSchema);
+let Person = mongoose.model("Person", personSchema);
 
 
 //let Person;
