@@ -1,5 +1,13 @@
 require('dotenv').config();
+var mongoose = require("mongoose");
 
+mongoose.connect(
+  MONGO_URI, 
+  {
+    useNewURLParser: true,
+    useUnifiedTopology: true
+  }
+);
 
 let Person;
 
