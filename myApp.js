@@ -13,15 +13,15 @@ mongoose.connect(
 //task 1 creating person schema
 
 const personSchema = new Schema({
-  name : {type: String, required: true},
-  age : Number,
-  favouriteFoods : [String] 
+  name: {type: String, required: true},
+  age: Number,
+  favouriteFoods: [String] 
 }); 
 
 const Person = mongoose.model("Person", personSchema);
 
 
-//let Person;
+let Person;
 
 const createAndSavePerson = (done) => {
   done(null /*, data*/);
