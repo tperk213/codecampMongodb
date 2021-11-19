@@ -31,23 +31,45 @@ const createAndSavePerson = (done) => {
       favouriteFoods: ["eggs", "fish", "fresh fruit"] 
   });
   
-  janeFonda.save((err, data) => {
+  janeFonda.save((err, result) => {
       if (err) return console.error(err);
-      done(null, data);
+      done(null, result);
   });
 };
 
-createAndSavePerson((req, res) => {
-  console.log("finished");
-});
+// createAndSavePerson((req, res) => {
+//   console.log("finished");
+// });
+
+//task 3 create and save many people
+var arrayOfPeople = [
+  {name: "Frankie", age: 74, favouriteFoods: ["del taco"]},
+  {name: "Sol", age: 76, favouriteFoods: ["roast chiken"]},
+  {name: "Robert", age: 78, favouriteFoods: ["wine"]},
+];
 
 const createManyPeople = (arrayOfPeople, done) => {
-  done(null /*, data*/);
+  Person.create(arrayOfPeople, (err, people)=>{
+      if (err) return console.log(err);
+      done(null, people);
+  });
 };
 
+//for testing
+// createManyPeople(arrayOfPeople, (req, res)=>{
+//   console.log("finished with " + res);
+// })
+
 const findPeopleByName = (personName, done) => {
-  done(null /*, data*/);
+  Person.find({name:personName}, (err, personFound)=>{
+    if(err) return console.log(err);
+    done(null, personFound);
+  });
 };
+
+findPeopleByName("Frankie", (req, personFound)=>{
+    console.log("Found person " + personFound)
+});
 
 const findOneByFood = (food, done) => {
   done(null /*, data*/);
