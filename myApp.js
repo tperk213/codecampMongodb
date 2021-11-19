@@ -31,11 +31,15 @@ const createAndSavePerson = (done) => {
       favouriteFoods: ["eggs", "fish", "fresh fruit"] 
   });
   
-  janFonda.save((err, data) => {
+  janeFonda.save((err, data) => {
       if (err) return console.error(err);
       done(null, data);
   });
 };
+
+createAndSavePerson((req, res) => {
+  console.log("finished");
+});
 
 const createManyPeople = (arrayOfPeople, done) => {
   done(null /*, data*/);
